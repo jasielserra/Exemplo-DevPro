@@ -1,7 +1,15 @@
-class Robot():
+class Point():
     def __init__(self,x,y):
         self.x = x
         self.y = y
+
+class Reward(Point):
+    def __init__(self, x, y, name):
+        super(Point, self).__init__(x,y)
+        self.name = name
+
+
+class Robot(Point):
 
     def move_up(self):
         if self.y < 10:
