@@ -5,7 +5,7 @@ class Point():
 
 class Reward(Point):
     def __init__(self, x, y, name):
-        super(Point, self).__init__(x,y)
+        super(Reward, self).__init__(x,y)
         self.name = name
 
 
