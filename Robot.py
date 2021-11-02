@@ -4,16 +4,28 @@ class Robot():
         self.y = y
 
     def move_up(self):
-        self.y = self.y + 1
+        if self.y < 10:
+            self.y = self.y + 1
+        else:
+            print("Movimento Proibido")
 
     def move_down(self):
-        self.y = self.y - 1
+        if self.y > 0:
+            self.y = self.y - 1
+        else:
+            print("Movimento Proibido")
 
     def move_right(self):
-        self.x = self.x + 1
+        if self.x < 10:
+            self.x = self.x + 1
+        else:
+            print("Movimento Proibido")
 
     def move_left(self):
-        self.x = self.x - 1
+        if self.x > 0:
+            self.x = self.x - 1
+        else:
+            print("Movimento Proibido")
 
 class Robot3D(Robot):
     def __init__(self, x, y, z):
