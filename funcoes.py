@@ -34,8 +34,20 @@ f(t[0],t[1],t[2], z=d['z'], w=d['w'])
 def add(a,b):
     return a + b
 
+def mult(a,b):
+    return a * b
+
 print(type(add))
 
 print(add.__code__)
 
 dis.dis(add)
+
+print(add,2,3)
+
+def calc(op,a,b):
+    return op(a,b)
+
+
+print(calc(add,3,4))
+print(calc(mult,3,4))
