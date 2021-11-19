@@ -3,6 +3,5 @@ table = (('Jasiel', 'Alagoinhas', 22.9, 43.1),
 
 
 
-for row in table:
-    nome, cidade, lat, long = row
+for nome, cidade, lat, long in table:
     print(nome, cidade, lat, long)
