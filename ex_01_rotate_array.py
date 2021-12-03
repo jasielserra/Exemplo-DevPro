@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import Iterable, List
 
 '''
 
@@ -53,13 +53,23 @@ Metodos em comum:
 
 
 
-def rotacionar(iteravel: Iterable, k: int):
+def rotacionar(iteravel: List, k: int):
     '''
     >>> lista = [1,2,3,4,5,6,7]
     >>> list(rotacionar(lista, 3))
     [5, 6, 7, 1, 2, 3, 4]
-    >>> for elemento in rotacionar(lista, 1)
+    >>> for elemento in rotacionar(lista, 1):
     ...     print(elemento)
+    ...
+    7
+    1
+    2
+    3
+    4
+    5
+    6
+    >>> next(iter(rotacionar(lista, 2)))
+    6
 
     :param iteravel:
     :param k:
@@ -67,7 +77,7 @@ def rotacionar(iteravel: Iterable, k: int):
     '''
 
     lista = list(iteravel) # lista: [1,2,3,4,5,6,7]
-    primeira_fatia = lista[-k:]
+    primeira_fatia = lista[-k:] # O(n) em tempo e em espaço
     segunda_fatia = lista[:-k]
     return primeira_fatia + segunda_fatia
 
