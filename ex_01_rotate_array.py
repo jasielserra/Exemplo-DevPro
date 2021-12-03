@@ -1,3 +1,4 @@
+from itertools import chain
 from typing import Iterable, List
 
 '''
@@ -56,9 +57,9 @@ Metodos em comum:
 def rotacionar(lista: List, k: int):
     '''
     >>> lista = [1,2,3,4,5,6,7]
-    >>> list(rotacionar(lista, 3))
+    >>> list(rotacionar(lista, 3)) # O(n) em tempo, e a lista gerada O(n) em espaço
     [5, 6, 7, 1, 2, 3, 4]
-    >>> for elemento in rotacionar(lista, 1):
+    >>> for elemento in rotacionar(lista, 1): # O(n) em tempo, e a lista gerada O(n) em espaço
     ...     print(elemento)
     ...
     7
@@ -68,7 +69,7 @@ def rotacionar(lista: List, k: int):
     4
     5
     6
-    >>> next(iter(rotacionar_generator(lista, 2)))
+    >>> next(iter(rotacionar_generator(lista, 2))) # O(n) em tempo, e a lista gerada O(n) em espaço
     6
 
     :param iteravel:
@@ -84,9 +85,9 @@ def rotacionar(lista: List, k: int):
 def rotacionar_generator(lista: List, k: int):
     '''
     >>> lista = [1,2,3,4,5,6,7]
-    >>> list(rotacionar_generator(lista, 3))
+    >>> list(rotacionar_generator(lista, 3)) # Fez a cópia da lista  O(n) em tempo, e a lista gerada O(n) em espaço
     [5, 6, 7, 1, 2, 3, 4]
-    >>> for elemento in rotacionar_generator(lista, 1):
+    >>> for elemento in rotacionar_generator(lista, 1): # O(n) em tempo de execução, O(1) em memória
     ...     print(elemento)
     ...
     7
@@ -96,7 +97,7 @@ def rotacionar_generator(lista: List, k: int):
     4
     5
     6
-    >>> next(iter(rotacionar_generator(lista, 2)))
+    >>> next(iter(rotacionar_generator(lista, 2))) # O(1) em tempo e em memória
     6
 
     :param iteravel:
@@ -104,7 +105,10 @@ def rotacionar_generator(lista: List, k: int):
     :return:
     '''
 
-    lista = list(lista) # lista: [1,2,3,4,5,6,7]
-    primeira_fatia = lista[-k:] # O(n) em tempo e em espaço
-    segunda_fatia = lista[:-k]
-    return primeira_fatia + segunda_fatia
+    n = len(lista)
+    primeira_fatia_indices = range(n-k,n) # (O)n
+    segunda_fatia_indices = range(n-k) # (O)n
+    indices_rotacionados = chain(primeira_fatia_indices, segunda_fatia_indices) # (O)n
+    for indices_rotacionado in indices_rotacionados:
+        yield lista[indices_rotacionado]
+
