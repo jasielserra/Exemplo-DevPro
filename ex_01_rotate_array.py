@@ -53,7 +53,7 @@ Metodos em comum:
 
 
 
-def rotacionar(iteravel: List, k: int):
+def rotacionar(lista: List, k: int):
     '''
     >>> lista = [1,2,3,4,5,6,7]
     >>> list(rotacionar(lista, 3))
@@ -68,7 +68,7 @@ def rotacionar(iteravel: List, k: int):
     4
     5
     6
-    >>> next(iter(rotacionar(lista, 2)))
+    >>> next(iter(rotacionar_generator(lista, 2)))
     6
 
     :param iteravel:
@@ -76,8 +76,35 @@ def rotacionar(iteravel: List, k: int):
     :return:
     '''
 
-    lista = list(iteravel) # lista: [1,2,3,4,5,6,7]
+    lista = list(lista) # lista: [1,2,3,4,5,6,7]
     primeira_fatia = lista[-k:] # O(n) em tempo e em espaço
     segunda_fatia = lista[:-k]
     return primeira_fatia + segunda_fatia
 
+def rotacionar_generator(lista: List, k: int):
+    '''
+    >>> lista = [1,2,3,4,5,6,7]
+    >>> list(rotacionar_generator(lista, 3))
+    [5, 6, 7, 1, 2, 3, 4]
+    >>> for elemento in rotacionar_generator(lista, 1):
+    ...     print(elemento)
+    ...
+    7
+    1
+    2
+    3
+    4
+    5
+    6
+    >>> next(iter(rotacionar_generator(lista, 2)))
+    6
+
+    :param iteravel:
+    :param k:
+    :return:
+    '''
+
+    lista = list(lista) # lista: [1,2,3,4,5,6,7]
+    primeira_fatia = lista[-k:] # O(n) em tempo e em espaço
+    segunda_fatia = lista[:-k]
+    return primeira_fatia + segunda_fatia
