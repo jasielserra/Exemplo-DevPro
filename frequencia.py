@@ -14,4 +14,10 @@ def contar_letras(s: str):
     :return:
     '''
 
-    return dict(Counter(s))
+    dct = {} # {'b': 1, 'a': 3, 'n': 2}
+    for letra in s:
+        dct[letra] = dct.get(letra, 0) + 1
+
+    return dct
+
+    #return dict(Counter(s))
