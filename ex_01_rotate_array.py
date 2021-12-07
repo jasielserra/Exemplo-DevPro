@@ -69,7 +69,7 @@ def rotacionar(lista: List, k: int):
     4
     5
     6
-    >>> next(iter(rotacionar_generator(lista, 2))) # O(n) em tempo, e a lista gerada O(n) em espaço
+    >>> #next(iter(rotacionar_generator(lista, 2))) # O(n) em tempo, e a lista gerada O(n) em espaço
     6
 
     :param iteravel:
