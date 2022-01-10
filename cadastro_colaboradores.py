@@ -16,10 +16,10 @@ def filtrar_maiores_de_25(colaboradores):
     resultado = []
     for nome,(idade, email, setor,_) in colaboradores.items():
         if idade >= 25:
-            adicionar((nome, email, setor))
+            adicionar(nome, email, setor, resultado)
     return resultado
 
-def adicionar(email, nome, resultado, setor):
+def adicionar(nome, email, setor, resultado):
     resultado.append((nome, email, setor))
 
 
