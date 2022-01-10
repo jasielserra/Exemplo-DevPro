@@ -11,11 +11,27 @@ Faça um programa que retorna o nome, email e setor de todos os funcionários co
 """
 import unittest
 
+
+def filtrar_maiores_de_25(colaboradores):
+    pass
+
+
 class TesteColaboradores(unittest.TestCase):
     def test_filtragem_colaboradores(self) -> None:
-        self.colaboradores = {
+        colaboradores = {
             'joao pereira': [25, 'joao.pereira@hurb.com', 'marketing', 1950],
             'Maria Silva' : [23, 'maria.silva@hurb.com', 'comercial', 2300],
             'Pedro Peixoto' : [32, 'pedro.peixoto@hurb.com', 'operacao', 2625],
             'Luiza Almeida' : [28, 'luiza.almeida@hurb.com', 'atendimento', 2120],
        }
+
+        resultado = filtrar_maiores_de_25(colaboradores)
+
+        self.assertEqual(
+            resultado,
+            [
+                ('Joao Pereira', 'joao.pereira@hurb.com', 'marketing'),
+                ('Pedro Peixoto', 'pedro.peixoto@hurb.com', 'operacao'),
+                ('Luiza Almeida', 'luiza.almeida@hurb.com', 'atendimento'),
+            ]
+        )
