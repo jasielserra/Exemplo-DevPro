@@ -16,8 +16,11 @@ def filtrar_maiores_de_25(colaboradores):
     resultado = []
     for nome,(idade, email, setor,_) in colaboradores.items():
         if idade >= 25:
-            resultado.append((nome, email, setor))
+            adicionar((nome, email, setor))
     return resultado
+
+def adicionar(email, nome, resultado, setor):
+    resultado.append((nome, email, setor))
 
 
 class TesteColaboradores(unittest.TestCase):
