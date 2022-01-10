@@ -15,7 +15,8 @@ import unittest
 def filtrar_maiores_de_25(colaboradores):
     resultado = []
     for nome,(idade, email, setor,_) in colaboradores.items():
-        resultado.append((nome, email, setor))
+        if idade >= 25:
+            resultado.append((nome, email, setor))
     return resultado
 
 
