@@ -20,5 +20,20 @@ class Liquidificador(Eletrodomestico):
         """
         return 'Ligando liquidificador'
 
+class Aspirador(Eletrodomestico):
+    def ligar(self):
+        """
+        Este método liga um aspirador retorna uma string
+        :return:
+        """
+        return 'Ligando Aspirador'
+
+class Casa:
+    def __init__(self):
+        self._eletrodomesticos = []
+
+    def adicionar_eletrodomesticos(self, eletrodomestico):
+        self._eletrodomesticos.append(eletrodomestico)
+
 if __name__ == '__main__':
     resultado_liquidificador_ligado = Liquidificador().ligar()
