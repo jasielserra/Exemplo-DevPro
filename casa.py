@@ -5,6 +5,8 @@ eletrodomésticos. Quando utilizar a classe Casa vou pegar os eletrodomésticos 
 eletrodoméstico execute uma operaçção comum, por exemplo, chamo o método ligar eletrodoméstico.
 Colocar os tipos que são esperados em cada entrada/saida. Isso não seria mais eficiente?
 """
+from typing import List
+
 
 class Eletrodomestico:
     def ligar(self):
@@ -29,10 +31,9 @@ class Aspirador(Eletrodomestico):
 
 class Casa:
     def __init__(self):
-        self._eletrodomesticos = []
+        self._eletrodomesticos: List[Eletrodomestico] = []
 
     def adicionar_eletrodomesticos(self, eletrodomestico: Eletrodomestico):
-        eletrodomestico.li
         self._eletrodomesticos.append(eletrodomestico)
 
     def ligar_todos_eletrodomesticos(self) -> str:
