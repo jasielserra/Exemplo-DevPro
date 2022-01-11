@@ -10,8 +10,22 @@ def sao_isomorficas(s:str, t:str) -> bool:
     False
     >>> sao_isomorficas('egg', 'ooo')
     True
+    >>> sao_isomorficas('egg', 'fooo')
+    False
+    >>> sao_isomorficas('egge', 'fooo')
+    False
+    >>> sao_isomorficas('egge', 'foox')
+    False
 
     :param s:
     :param t:
-    :return: boleano informando se t e s são (True) ou não (False) isomórficas
+    :return: boleano informando se t e s são    >>> sao_isomorficas('egge', 'foox')
+    False (True) ou não (False) isomórficas
     """
+
+    for i in range(len(s)):
+        s = s.replace(s[i], t[i])
+
+    if t == s:
+        return True
+    return False
