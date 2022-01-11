@@ -6,7 +6,6 @@ eletrodoméstico execute uma operaçção comum, por exemplo, chamo o método li
 Colocar os tipos que são esperados em cada entrada/saida. Isso não seria mais eficiente?
 """
 
-
 class Eletrodomestico:
     def ligar(self):
         raise NotImplementedError()
@@ -32,11 +31,12 @@ class Casa:
     def __init__(self):
         self._eletrodomesticos = []
 
-    def adicionar_eletrodomesticos(self, eletrodomestico):
+    def adicionar_eletrodomesticos(self, eletrodomestico: Eletrodomestico):
+        eletrodomestico.li
         self._eletrodomesticos.append(eletrodomestico)
 
-    def ligar_todos_eletrodomesticos(self):
-        return ', '.join(eletro.ligar() for eletro in self._eletrodomesticos)
+    def ligar_todos_eletrodomesticos(self) -> str:
+        return ' => '.join(eletro.ligar() for eletro in self._eletrodomesticos)
 
 if __name__ == '__main__':
     liquidificador = Liquidificador()
