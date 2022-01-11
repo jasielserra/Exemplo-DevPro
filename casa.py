@@ -35,5 +35,8 @@ class Casa:
     def adicionar_eletrodomesticos(self, eletrodomestico):
         self._eletrodomesticos.append(eletrodomestico)
 
+    def ligar_todos_eletrodomesticos(self):
+        return ', '.join(eletro.ligar() for eletro in self._eletrodomesticos)
+
 if __name__ == '__main__':
     resultado_liquidificador_ligado = Liquidificador().ligar()
