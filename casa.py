@@ -39,4 +39,11 @@ class Casa:
         return ', '.join(eletro.ligar() for eletro in self._eletrodomesticos)
 
 if __name__ == '__main__':
+    liquidificador = Liquidificador()
     resultado_liquidificador_ligado = Liquidificador().ligar()
+
+    casa = Casa()
+
+    casa.adicionar_eletrodomesticos(liquidificador)
+    casa.adicionar_eletrodomesticos(Aspirador())
+    print(casa.ligar_todos_eletrodomesticos())
