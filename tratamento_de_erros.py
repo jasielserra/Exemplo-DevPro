@@ -1,5 +1,15 @@
 _usuarios = {'jasielserra@gmail.com': 'Jasiel Serra'}
 
+class BancoDeDadosException(Exception):
+    pass
+
+class UsuarioNaoEncontrado(BancoDeDadosException):
+    pass
+
+class EmailInvalido(BancoDeDadosException):
+    def __init__(self, msg_de_erro: str) -> None:
+        super().__init__()
+
 def procurar_usuario_no_banco(email: str) -> str:
     try:
         return _usuarios[email]
