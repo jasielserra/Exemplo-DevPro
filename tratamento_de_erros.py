@@ -7,10 +7,14 @@ class UsuarioNaoEncontrado(BancoDeDadosException):
     pass
 
 class EmailInvalido(BancoDeDadosException):
-    def __init__(self, msg_de_erro: str) -> None:
+    def __init__(self, msg_de_erro: str, email:str) -> None:
         super().__init__()
+        self.email = email
+        self.msg_de_erro = msg_de_erro
 
 def procurar_usuario_no_banco(email: str) -> str:
+    if '@' not in email:
+        raise EmailInvalido('Email inválido, faltando caracter "@"', email)
     try:
         return _usuarios[email]
     except KeyError as e:
