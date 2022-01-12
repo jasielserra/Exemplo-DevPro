@@ -19,14 +19,14 @@ def procurar_usuario_no_banco(email: str) -> str:
         return _usuarios[email]
     except KeyError as e:
         print('Deu ruim no banco')
-        raise e
+        raise UsuarioNaoEncontrado()
 
 
 def enviar_email_de_boas_vindas(email: str) -> None:
     try:
         usuario = procurar_usuario_no_banco(email)
-    except KeyError:
-        print('Não enviado o email porque usuário não foi encontrado')
+    except EmailInvalido as e:
+        print(f'Informar usuária para corrigir email. Razão do erro: {e.msg_de_erro}')
     else:
         print(f'Enviando email para: {email}')
         print(f'Mensagem para {usuario}')
@@ -34,4 +34,5 @@ def enviar_email_de_boas_vindas(email: str) -> None:
 
 if __name__ == '__main__':
     enviar_email_de_boas_vindas('jasielserra@gmail.com')
-    enviar_email_de_boas_vindas('pedroserra@gmail.com')
+    enviar_email_de_boas_vindas('pedroserra')
+    enviar_email_de_boas_vindas('carlospiton@hotmail.com')
