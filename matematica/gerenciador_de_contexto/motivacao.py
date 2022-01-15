@@ -1,9 +1,4 @@
-try:
-    arquivo = open('a.txt', 'r', encoding='utf8')
-
+with open('a.txt', 'r', encoding='utf8') as arquivo:
     for linha in arquivo:
         raise Exception()
         print(linha)
-    print('Fechado')
-finally:
-    arquivo.close()
