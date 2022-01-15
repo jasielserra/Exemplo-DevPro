@@ -11,4 +11,4 @@ class Arquivo:
 arquivo = Arquivo()
 
 with Arquivo() as arquivo:
-    pass
+    print(id(arquivo))
