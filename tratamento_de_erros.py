@@ -12,6 +12,7 @@ class EmailInvalido(BancoDeDadosException):
         self.email = email
         self.msg_de_erro = msg_de_erro
 
+
 def procurar_usuario_no_banco(email: str) -> str:
     if '@' not in email:
         raise EmailInvalido('Email inválido, faltando caracter "@"', email)
@@ -19,7 +20,7 @@ def procurar_usuario_no_banco(email: str) -> str:
         return _usuarios[email]
     except KeyError as e:
         print('Deu ruim no banco')
-        raise UsuarioNaoEncontrado()
+        raise UsuarioNaoEncontrado() from e
 
 
 def enviar_email_de_boas_vindas(email: str) -> None:
@@ -27,6 +28,8 @@ def enviar_email_de_boas_vindas(email: str) -> None:
         usuario = procurar_usuario_no_banco(email)
     except EmailInvalido as e:
         print(f'Informar usuária para corrigir email. Razão do erro: {e.msg_de_erro}')
+    except UsuarioNaoEncontrado as e:
+        print('Usuário não encontrado')
     else:
         print(f'Enviando email para: {email}')
         print(f'Mensagem para {usuario}')
