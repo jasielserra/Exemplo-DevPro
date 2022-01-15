@@ -1,5 +1,9 @@
 class Arquivo:
-    pass
+    def __enter__(self):
+        print('Enter')
+        return self
+
+
 
 arquivo = Arquivo()
 
