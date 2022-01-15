@@ -1,6 +1,6 @@
 class Arquivo:
     def __enter__(self):
-        print('Enter')
+        print(f'Enter: {id(self)}')
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -10,5 +10,5 @@ class Arquivo:
 
 arquivo = Arquivo()
 
-with arquivo:
+with Arquivo() as arquivo:
     pass
