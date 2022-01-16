@@ -7,9 +7,12 @@ from typing import Callable
 
 
 def contextmanager(chamavel: Callable):
+    gerador = chamavel()
+
     class GerenciadorDeContexto:
         def __enter__(self):
-            print('Entrada')
+            return next(gerador)
+
         def __exit__(self, exc_type, exc_val, exc_tb):
             print('Saída')
 
