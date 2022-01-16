@@ -14,7 +14,7 @@ def contextmanager(chamavel: Callable):
             return next(gerador)
 
         def __exit__(self, exc_type, exc_val, exc_tb):
-            print('Saída')
+            next(gerador, None)
 
     return GerenciadorDeContexto
 
