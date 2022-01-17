@@ -7,11 +7,19 @@
     <title>HTML - Listas e Links</title>
     </head>
     <body>
-
+          <p> Paragrafo </p>
         <h1> Listas e Links </h1>
-        <h2>Lista não ordenadas</h2>
+        <h2 id="lista-nao-ordenada">Lista não ordenadas</h2>
         <ul>
             <li>Brasil</li>
+            <ul>
+                <li>Bahia</li>
+                <li>Sergipe</li>
+                <li>Alagoas</li>
+                <li>Pernambuco</li>
+                <li>Ceara</li>
+                <li>Piauí</li>
+            </ul>
             <li>Argentina</li>
             <li>Uruguai</li>
             <li>Paraguai</li>
@@ -33,9 +41,15 @@
             <dd>USB, 19 polegadas, Core I3</dd>
         </dl>
         <h2>Links</h2>
-        <a href="https://ebaconline.com.br">EBAC</a>
-        <a href="#top">Voltar ao topo da página</a>
-        <p> Paragrafo </p>
+
+        <nav>
+            <ul>
+                <li><a href="https://ebaconline.com.br">EBAC</a></li>
+                <li><a href="#top">Voltar ao topo da página</a></li>
+                <li><a href="#lista-nao-ordenada">Ver a lista não ordenada</a></li>
+            </ul>
+        </nav>
+
     Adicionado texto sem marcação para exibição de qualquer forma
     </body>
 </html>
